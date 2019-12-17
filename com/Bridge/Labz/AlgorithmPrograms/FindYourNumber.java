@@ -1,9 +1,6 @@
 package com.Bridge.Labz.AlgorithmPrograms;
-
 import java.util.Scanner;
-
 public class FindYourNumber {
-
 	public static void fyn(int arr[]) {
 		  int l = 0, r = arr.length; 
 	        while (l <= r) { 
@@ -11,7 +8,6 @@ public class FindYourNumber {
 	System.out.println("if "+arr[m]+" is your number enter 1 else o");
 	Scanner a=new Scanner(System.in);
 	int x=a.nextInt();
-	a.close();
 	if (x==0)
 	{
 		System.out.println("if"+arr[m]+"is greather than your number enter 1 else o");
@@ -36,5 +32,4 @@ int[] arr=new int[64];
 }
 		fyn(arr);
 	}
-
 }
