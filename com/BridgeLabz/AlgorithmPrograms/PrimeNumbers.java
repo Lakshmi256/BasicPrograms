@@ -1,4 +1,4 @@
-package com.Bridge.Labz.AlgorithmPrograms;
+package com.BridgeLabz.AlgorithmPrograms;
 
 public class PrimeNumbers {
 	static  boolean isPrime(int n)

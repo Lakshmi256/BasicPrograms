@@ -1,4 +1,4 @@
-package com.Bridge.Labz.AlgorithmPrograms;
+package com.BridgeLabz.AlgorithmPrograms;
 import java.util.Scanner;
 public class InsertionSort {
 public static void insertion(String arr[],int n) {
