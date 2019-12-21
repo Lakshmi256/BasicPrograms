@@ -1,6 +1,8 @@
 package com.BridgeLabz.utility;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import com.BridgeLabz.LogicalPrograms.TicTacToe;
 public class Util {
 	public static double distance(double x,double y)
 	{
@@ -23,6 +25,25 @@ public class Util {
 	public static  double readdouble()
 	{
 		return sc.nextDouble();
+	}
+	public static  boolean readBoolean()
+	{
+		return sc.nextBoolean();
+	}
+	public static int triplets(int a[])
+	{
+		int n=a.length,count=0;
+		for(int i=0;i<n;i++)
+			for(int j=0;j<n;j++)
+				for(int k=0;k<n;k++)
+				{
+					if(a[i]+a[j]+a[k]==0)
+					{
+						System.out.println(a[i]+" "+a[j]+" "+a[k]);
+						count++;
+					}
+				}
+		return count;
 	}
 	public static void  quad(double a,double b,double c)
 	{
@@ -103,6 +124,7 @@ public class Util {
 		}
 		for(int j=i-1;j>=0;j--)
 			System.out.print(binnum[j]);
+			
 	}
 
 	public static void vend(int cash)
@@ -400,4 +422,83 @@ public static void primefactors(int n)
 		System.out.println(n);
 	}
 }
+public static void print(char[][] ar) {
+System.out.println(ar[0][0]+" "+ar[0][1]+" "+ar[0][2]);
+System.out.println(ar[1][0]+" "+ar[1][1]+" "+ar[1][2]);
+System.out.println(ar[2][0]+" "+ar[2][1]+" "+ar[2][2]);
+System.out.println("------");
+
+
+}
+
+public static char[][] userinput(int row , int column, char[][] a){
+a[row][column]='x';
+return a;
+
+}
+public static char[][] compinput(int row , int column, char[][] a){
+a[row][column]='o';
+return a;
+
+
+}
+public static void tictactoe(char[][] a)
+{
+	Util ab=new Util();
+	int turn=0, row=0,col=0;
+	boolean win=false;
+	while((turn!=9)||(win))
+	{
+	if((turn!=9)&&(!win))
+	{
+	System.out.println("enter your move");
+	System.out.println("enter the row 0-2");
+	row=readInt();
+	System.out.println("enter the column 0-2");
+	col=readInt();
+
+	while((a[row][col]=='x')||(a[row][col]=='o')) {
+	System.out.println("invalid move");
+	System.out.println("enter the row 0-2");
+	row=readInt();
+	System.out.println("enter the column 0-2");
+	col=readInt();
+	}
+	a=ab.userinput(row,col, a);
+
+	ab.print(a);
+	}
+	if((a[0][0]=='x' && a[0][1]=='x' && a[0][2]=='x') || (a[1][0]=='x' && a[1][1]=='x' && a[1][2]=='x') || (a[2][0]=='x' && a[2][1]=='x' && a[2][2]=='x') || (a[0][0]=='x' && a[1][0]=='x' && a[2][0]=='x') || (a[0][1]=='x' && a[1][1]=='x' && a[2][1]=='x') || (a[0][2]=='x' && a[1][2]=='x' && a[2][2]=='x') || (a[0][0]=='x' && a[1][1]=='x' && a[2][2]=='x') || (a[0][2]=='x' && a[1][1]=='x' && a[2][0]=='x'))
+	{ 
+	System.out.println("you win");
+	win=true;
+	break;
+	}
+	turn++;
+	if((turn!=9)&&(!win))
+	{
+	row=(int)(Math.random()*3);
+	col=(int)(Math.random()*3);
+	while((a[row][col]=='x')||(a[row][col]=='o')) {
+	row=(int)(Math.random()*3);
+	col=(int)(Math.random()*3);
+	}
+	a=ab.compinput(row,col, a);
+	ab.print(a);
+	if((a[0][0]=='o' && a[0][1]=='o' && a[0][2]=='o') || (a[1][0]=='o' && a[1][1]=='o' && a[1][2]=='o') || (a[2][0]=='o' && a[2][1]=='o' && a[2][2]=='o') || (a[0][0]=='o' && a[1][0]=='o' && a[2][0]=='o') || (a[0][1]=='o' && a[1][1]=='o' && a[2][1]=='o') || (a[0][2]=='o' && a[1][2]=='o' && a[2][2]=='o') || (a[0][0]=='o' && a[1][1]=='o' && a[2][2]=='o') || (a[0][2]=='o' && a[1][1]=='o' && a[2][0]=='o'))
+	{
+	System.out.println("computer wins");
+	win=true;
+	break;
+	}
+	turn++;
+	}
+
+	}
+	if((!win)||(turn==9))
+	{
+	System.out.println("draw");
+	}
+	}
+
 }

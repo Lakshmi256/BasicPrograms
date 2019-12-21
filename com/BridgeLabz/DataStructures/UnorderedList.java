@@ -2,64 +2,90 @@ package com.BridgeLabz.DataStructures;
 import java.io.*;
 import java.util.Scanner;
 public class UnorderedList {
+	static Node head;
 	static class Node  
 	{ 
 	    String data; 
-	    Node next; 
-	}; 
-	static Node insert(Node root, String item) 
-	{ 
-	    Node temp = new Node(); 
-	    temp.data = item; 
-	    temp.next = root; 
-	    root = temp; 
-	    return root; 
+	    Node next;
+		public Object head;
 	} 
-	static void display(Node root) 
+	static Node insert(Node head, String item) 
 	{ 
-	    while (root != null)  
+	    Node temp=new Node(); 
+	    temp.data=item; 
+	    temp.next=head; 
+	    head=temp; 
+	    return head; 
+	} 
+	static void display(Node head) 
+	{ 
+	    while (head!=null)  
 	    { 
-	        System.out.print(root.data + " "); 
-	        root = root.next; 
+	        System.out.print(head.data + " "); 
+	        head=head.next; 
 	    } 
 	} 
 	static Node arrayToList(String arr[], int n) 
 	{ 
-	    Node root = null; 
-	    for (int i = n - 1; i >= 0 ; i--) 
-	        root = insert(root, arr[i]); 
-	    return root; 
+	    Node head=null; 
+	    for (int i=n - 1; i >= 0 ; i--) 
+	    	head=insert(head, arr[i]); 
+	    return head; 
 	}   
 	public static  boolean search(Node head,String x)
 	{ 
-		Node current = head;    //Initialize current 
-    while (current != null) 
+		Node current=head;     
+    while (current!=null) 
     { 
-        if (current.data == x) 
-            return true;    //data found 
-        current = current.next; 
+        if (current.data.equals(x)) 
+            return true;
+        current=current.next; 
     } 
     return false;
 	}
+	public static void remove(String a,Node root)
+	{
+		Node temp=head,prev=null;
+		if (temp != null && temp.data == a) 
+        { 
+            root= temp.next; // Changed head 
+            return; 
+        } 
+		while (temp != null && temp.data != a) 
+        { 
+            prev = temp; 
+            temp = temp.next; 
+        }      
+		if (temp == null) return;
+		   prev.next = temp.next; 
+	}
 	public static void main(String[] args) throws Exception {
-		  // TODO Auto-generated method stub
 		  File file = new File("/home/bridhelabz/Desktop/lp/lp.txt"); 	  
 		  BufferedReader br = new BufferedReader(new FileReader(file)); 
-		  String st=" "; 
-			 String[] St = null;
+		  	String st=" "; 
+			String[] St = null;
 		  while ((st = br.readLine()) != null)
 		  {
 			 St=st.split(" ");
 		  }
-		  String arr[] =St; 
-		    int n = arr.length; 
-		    Node root = arrayToList(arr, n);
+		    int n = St.length; 
+		    Node root = arrayToList(St, n);
+		  	Node head=null;
 		    Scanner b=new Scanner(System.in);
 		    String a=b.nextLine();
-	        if (search(root, a)) 
+		    boolean x=search(root,a);
+	        if (x==true) 
+	        {
+	        	remove(a,root);
+	        	display(root);
 	            System.out.println("Yes"); 
-	        else
-	            System.out.println("No"); 
-		    display(root);
+	        }
+	            else
+	        {
+	            		Node root1=insert(head,a);
+	            	   System.out.println("No"); 
+	            	   root1.next=root;
+	            	   display(root1);
+	        }
 	}
 }
