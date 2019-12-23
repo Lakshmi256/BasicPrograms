@@ -43,15 +43,15 @@ public class UnorderedList {
     } 
     return false;
 	}
-	public static void remove(String a,Node root)
+	public static void remove(String a)
 	{
 		Node temp=head,prev=null;
 		if (temp != null && temp.data == a) 
         { 
-            root= temp.next; // Changed head 
+            head= temp.next; // Changed head 
             return; 
         } 
-		while (temp != null && temp.data != a) 
+		while (temp !=null && temp.data != a) 
         { 
             prev = temp; 
             temp = temp.next; 
@@ -63,26 +63,26 @@ public class UnorderedList {
 		  File file = new File("/home/bridhelabz/Desktop/lp/lp.txt"); 	  
 		  BufferedReader br = new BufferedReader(new FileReader(file)); 
 		  	String st=" "; 
-			String[] St = null;
-		  while ((st = br.readLine()) != null)
+			String[] St=null;
+		  while ((st=br.readLine()) != null)
 		  {
 			 St=st.split(" ");
 		  }
-		    int n = St.length; 
-		    Node root = arrayToList(St, n);
+		    int n=St.length; 
+		    Node root=arrayToList(St, n);
 		  	Node head=null;
 		    Scanner b=new Scanner(System.in);
 		    String a=b.nextLine();
 		    boolean x=search(root,a);
 	        if (x==true) 
 	        {
-	        	remove(a,root);
+	        	remove(a);
 	        	display(root);
 	            System.out.println("Yes"); 
 	        }
 	            else
 	        {
-	            		Node root1=insert(head,a);
+	                	Node root1=insert(head,a);
 	            	   System.out.println("No"); 
 	            	   root1.next=root;
 	            	   display(root1);

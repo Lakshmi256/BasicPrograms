@@ -1,6 +1,12 @@
 package com.BridgeLabz.DataStructures;
 
+import java.util.Stack;
+
 public class Node {
-String data;
-Node next;
-}
+	   static void stack_push(Stack<Integer> stack) 
+	   {
+
+ 
+	   }
+	   
+	   }

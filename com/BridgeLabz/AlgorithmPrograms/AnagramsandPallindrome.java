@@ -39,7 +39,7 @@ int l=0;
 				if(	(Util.areAnagram(x,y))==true) 
 			
 				{
-					System.out.print(" "+arr[k]+" "+arr[m]+" ");
+					System.out.print(" "+arr[k]+"---"+arr[m]+" ");
 				}
 			}
 		}
