@@ -1,9 +1,6 @@
 package com.BridgeLabz.DataStructures;
-
 import com.BridgeLabz.utility.Util;
-
 public class PrimeAnagrams {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] arr=new int[1000];
@@ -59,7 +56,6 @@ public class PrimeAnagrams {
 			{
 				System.out.print(brr[1][i]+" ");
 			}
-					
 	}
 	public static boolean ser(int[][] brr,int arr,int y )
 	{
@@ -69,10 +65,8 @@ public class PrimeAnagrams {
 				if (arr==brr[0][m])
 				{
 					return false;
-					
 				}
 			}
 			return true;
 	}
-
 }

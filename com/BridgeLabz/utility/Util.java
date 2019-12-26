@@ -1,4 +1,7 @@
 package com.BridgeLabz.utility;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -10,6 +13,7 @@ public class Util {
 		return sum;
 	}
 	private static Scanner sc;
+	private static final BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 	static
 	{
 		sc=new Scanner(System.in);
@@ -21,6 +25,10 @@ public class Util {
 	public static String readString()
 	{
 		return sc.nextLine();
+	}
+	public static String bufferScanner() throws IOException
+	{
+	return br.readLine();
 	}
 	public static  double readdouble()
 	{
@@ -493,7 +501,6 @@ public static void tictactoe(char[][] a)
 	}
 	turn++;
 	}
-
 	}
 	if((!win)||(turn==9))
 	{
