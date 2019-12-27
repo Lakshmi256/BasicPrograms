@@ -327,9 +327,14 @@ public static void flip(int n)
 	{
 		double x=Math.random();
 		if(x>0.5)
+		{
 			hcn++;
-		tcn++;
-	}
+		}
+		else
+		{
+			tcn++;
+		}
+		}
 	double s,r;
 	s=(tcn/n)*100;
 	r=(hcn/n)*100;
@@ -433,20 +438,14 @@ System.out.println(ar[0][0]+" "+ar[0][1]+" "+ar[0][2]);
 System.out.println(ar[1][0]+" "+ar[1][1]+" "+ar[1][2]);
 System.out.println(ar[2][0]+" "+ar[2][1]+" "+ar[2][2]);
 System.out.println("------");
-
-
 }
-
 public static char[][] userinput(int row , int column, char[][] a){
 a[row][column]='x';
 return a;
-
 }
 public static char[][] compinput(int row , int column, char[][] a){
 a[row][column]='o';
 return a;
-
-
 }
 public static void tictactoe(char[][] a)
 {

@@ -1,10 +1,7 @@
 package com.BridgeLabz.AlgorithmPrograms;
 import com.BridgeLabz.utility.Util;
-
 public class BinarySearch {
 	public static void main(String[] args) {
-
-	
 	int n=Util.readInt();
 	String arr[]=new String[n];
 	System.out.println("enter the string");
@@ -21,6 +18,4 @@ public class BinarySearch {
         System.out.println("Element found at "
                           + "index " + result); 
 	}}
-	
-	
 	}
