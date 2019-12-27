@@ -14,10 +14,8 @@ public class MergSort {
 	        	System.out.print(arr[i]+" ");
 	        }
 	        Util.merge(arr, l, m, r);
-	        
 	  System.out.println( );
 	        System.out.println("sorted array"); 
 	        Util.printArray(arr); 
-	  
 	    } 
 	} 

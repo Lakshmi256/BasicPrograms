@@ -48,8 +48,6 @@ public class OrderedList {
 	 
 	  public static void sort(Node head)
 	  {
-		Node temp=head;
-		
 	  }
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub

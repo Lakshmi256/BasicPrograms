@@ -1,12 +1,10 @@
 package com.BridgeLabz.DataStructures;
-
 public class Queue <E>{
 	public Node<E> head;
 	public Node<E> rear;
-	
 	public void enqueue(E data)
 	{
-		  Node node=new Node();
+		  Node<E> node=new Node<E>();
 		 node.data=data;
 		  node.next=null;
 		    if(head==null)
@@ -16,7 +14,7 @@ public class Queue <E>{
 		   }
 		else
 		   {
-		     Node n=head;
+		     Node<E> n=head;
 		      while(n.next!=null)
 		     {
 			   n=n.next;
@@ -24,8 +22,6 @@ public class Queue <E>{
 		     n.next=node;
 		     rear=node;
 		   }
-		
-		
 	}
 	public  int size()
 	{
@@ -48,7 +44,7 @@ public class Queue <E>{
 	}
 	public void show()
 	{
-		 Node n=head;
+		 Node<E> n=head;
 	     while(n.next!=null)
 	    {
 	    	 System.out.print(n.data+" ");
@@ -72,7 +68,7 @@ public class Queue <E>{
 		}
 		else
 		{
-		Node n=head;
+		Node<E> n=head;
         head=head.next;
         E data=(E) n.data;
 	    n=null;
@@ -90,8 +86,6 @@ public class Queue <E>{
 			return false;
 		}
 	}
-
-
 	}
 
 

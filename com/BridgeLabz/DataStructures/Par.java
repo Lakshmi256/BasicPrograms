@@ -45,33 +45,24 @@ public class Par {
        else
          return false; 
     } 
-      
-  
     static boolean areParenthesisBalanced(char exp[]) 
     { 
-
        stack st=new stack(); 
-     
        for(int i=0;i<exp.length;i++) 
        { 
- 
           if (exp[i] == '{' || exp[i] == '(' || exp[i] == '[') 
             st.push(exp[i]); 
-    
           if (exp[i] == '}' || exp[i] == ')' || exp[i] == ']') 
           { 
-    
              if (st.isEmpty()) 
                { 
                    return false; 
                }  
-    
              else if ( !isMatchingPair(st.pop(), exp[i]) ) 
                { 
                    return false; 
                } 
-          } 
-            
+          }       
        } 
      
        if (st.isEmpty()) 
@@ -81,8 +72,6 @@ public class Par {
              return false; 
          }  
     }  
-      
-  
     public static void main(String[] args)  
     { 
         char exp[] = {'{','(',')','}','[',']'}; 
@@ -91,5 +80,4 @@ public class Par {
           else
             System.out.println("Not Balanced ");   
     } 
-  
 } 

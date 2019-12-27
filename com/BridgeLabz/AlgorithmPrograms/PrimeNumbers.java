@@ -1,9 +1,6 @@
 package com.BridgeLabz.AlgorithmPrograms;
-
 import com.BridgeLabz.utility.Util;
-
 public class PrimeNumbers {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] arr=new int[1000];

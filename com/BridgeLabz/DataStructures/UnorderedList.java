@@ -8,7 +8,6 @@ public class UnorderedList <E>{
 	public Node<E> returnHead()
 	{
 		return head;
-		
 	}
 	public void add(E data)
 	{
@@ -28,8 +27,7 @@ public class UnorderedList <E>{
 		}
 		n.next=node;
 	    last=node;
-		}
-		
+		}	
 	}
 	public  boolean search(E data)
 	{

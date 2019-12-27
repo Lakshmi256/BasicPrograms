@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
-
-import com.BridgeLabz.LogicalPrograms.TicTacToe;
 public class Util {
 	public static double distance(double x,double y)
 	{
@@ -507,5 +505,4 @@ public static void tictactoe(char[][] a)
 	System.out.println("draw");
 	}
 	}
-
 }
