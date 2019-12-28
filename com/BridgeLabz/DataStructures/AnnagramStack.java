@@ -1,26 +1,41 @@
 package com.BridgeLabz.DataStructures;
 import com.BridgeLabz.utility.Util;
-public class AnnagramStack {
-
-		 static int Stack[]=new int[200];  
-	        static int top=157;
-	
-	
-	public static void push(int x)
+public class AnnagramStack<E> {
+static Node head;
+static Node top;
+	public static void push(int data)
 	{
-	  Stack[top]=x;
-	  top--;
+		Node<Integer> node=new Node<Integer>();
+		node.data=data;
+		node.next=null;
+		if(head==null)
+		{
+			head=node;
+			top=node;
+		}
+		else
+		{
+			Node<Integer> n=head;
+			while(n.next!=null)
+			{
+				n=n.next;
+			}
+			n.next=node;
+			top=node;
+		}
 	}
-	
-	  public static void display() 
-	  {
-		  for (int n:Stack)
-		  {
-			  System.out.print(n+" ");
-		  }
-	  }
-	   
-	
+public static void show()
+{
+	Node<Integer> n=head;
+	while(n.next!=null)
+	{
+		System.out.print(n.data+" ");
+		n=n.next;
+		
+	}
+	System.out.print(n.data);
+}
+
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		int[] arr=new int[1000];
@@ -59,14 +74,14 @@ public class AnnagramStack {
 						}
 					}			
 				}
-				for(int i=0;i<c;i++)
+				for(int i=c-1;i>=0;i--)
 				{
-					System.out.print(brr[i]+" ");
+					
 					push(brr[i]);
 				}		
 				
 				System.out.println();
-				display();
+				show();
 				}	
 
 }

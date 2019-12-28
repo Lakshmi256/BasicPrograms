@@ -1,29 +1,17 @@
 package com.BridgeLabz.DataStructures;
 import com.BridgeLabz.utility.Util;
 public class BinaryTree {
-public static int bts(int x)
+public static double fact(double x)
 {
-	int sum = 0,m=1,n=1;
-		for(int i=0;i<=x/2;i++)
-		{
-			{
-				if ((i==0)||(i==1))
-				{
-					m=1;
-					n=1;
-				}
-				else
-				{
-					m=bts(i);
-					n=bts(x-1-i);
-			}	
-			sum+=m*n+n*m;	
-	           }
-		    	}
-	return sum;
+	if (x==1)
+		return 1;
+	else
+		return(x*fact(x-1));
+	
 }
 	public static void main(String[] args) {	
-int n=Util.readInt();
-System.out.println(bts(n));
+double n=Util.readdouble();
+double sum=fact(2*n)/(fact(n+1)*fact(n));
+System.out.println(sum);
 	}
 }

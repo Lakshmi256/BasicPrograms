@@ -8,7 +8,7 @@ public class UnorderedList <E>{
 	public Node<E> returnHead()
 	{
 		return head;
-	}
+	} 
 	public void add(E data)
 	{
 		Node<E> node=new Node<E>();
@@ -208,6 +208,22 @@ public class UnorderedList <E>{
 		System.out.print(n.data);
 		
 	}
+	public static void writeFile(UnorderedList list) throws IOException
+	{
+		Node<String> head=list.head;
+		Node<String> n=head;
+		File f=new File("/home/bridhelabz/Desktop/lp/lp.txt");
+	    FileWriter fr=new FileWriter(f);
+	    BufferedWriter br=new BufferedWriter(fr);
+		while(n.next!=null)
+		{
+			
+			br.write(n.data+" ");
+			n=n.next;
+		}
+		br.write(n.data);
+	    br.close();
+	}
 	public static void main(String[] args) throws Exception {
 		UnorderedList<String> list=new UnorderedList<String>();
 		  File file = new File("/home/bridhelabz/Desktop/lp/lp.txt"); 	  
@@ -236,14 +252,22 @@ public class UnorderedList <E>{
 	        {
 
 		        	list.add(a);
-		        	list.show();
-		            System.out.println("Yes"); 
+		        	
+		        	
+		            System.out.println("the element is not found ");
+		            System.out.println("the element is added");
+		            System.out.println();
+		            list.show();
 	}
 	            else
 	            {
 	            	list.remove(a);
+	            	System.out.println("the element is found");
+	            	System.out.println("the element is deleted ");
+	            	System.out.println();
 	            	list.show();
+	            	
 	            }
-	
+	        writeFile(list);
 			}
 	}

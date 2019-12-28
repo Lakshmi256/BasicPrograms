@@ -20,6 +20,10 @@ public class Util {
 	{
 		return sc.nextInt();
 	}
+	public static long readlong()
+	{
+		return sc.nextLong();
+	}
 	public static String readString()
 	{
 		return sc.nextLine();
