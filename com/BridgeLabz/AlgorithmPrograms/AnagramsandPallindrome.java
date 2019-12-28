@@ -1,9 +1,6 @@
 package com.BridgeLabz.AlgorithmPrograms;
-
 import com.BridgeLabz.utility.Util;
-
 public class AnagramsandPallindrome {
-		
 	public static void main(String[] args) {
 int[] arr=new int[1000];
 int l=0;
