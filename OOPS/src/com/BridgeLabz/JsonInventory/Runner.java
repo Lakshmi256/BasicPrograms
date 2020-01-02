@@ -18,6 +18,7 @@ public class Runner {
 	        System.out.println("1. Open a new Inventory");
 	        System.out.println("2. Add items to the inventory");
 	        System.out.println("3. Exit");
+	        System.out.println("4, to add the inventory");
 	        System.out.print("Enter your choice : ");
 	        ch=Util.readInt();
 			switch(ch)
@@ -35,7 +36,9 @@ public class Runner {
 			        obj.addItems(f2);
 			        System.out.println("The items have been added");
 			        break;
-			        
+			case 4:System.out.print("Enter the Inventory Name to calculate the Inventory Price :");
+					String s=Util.readString();
+					InventoryManager.grandTotal(s);
 		   default: System.out.println("Wrong Choice!!");
 			        System.out.println("Do you wish to continue(y/n)");
 			        a=Util.bufferScanner();

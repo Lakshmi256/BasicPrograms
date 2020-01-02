@@ -1,10 +1,8 @@
 package com.BridgeLabz.AddressBook;
-
 import java.io.IOException;
 
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
-
 import com.BridgeLabz.Utillity.Util;
 
 public class Runner {
@@ -19,6 +17,7 @@ do
 	System.out.println("1. Add a new Address Book");
 	System.out.println("2. Open an existing Address Book");
 	System.out.println("3. Exit");
+	
 	System.out.println("Enter your choice");
 	ch=Util.readInt();
 	switch(ch)
@@ -68,13 +67,16 @@ do
 		       System.out.println("Record does not exist");
 		     }
 		     break;
+
 	case 3: System.exit(0);
 	        break;
 	default: System.out.println("Wrong Choice!!");
 	       System.out.println("Do you wish to continue(y/n)");
 	     a=Util.readString();
+	
   	}
    }
    while(a!="n");
+
 }
 }

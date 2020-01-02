@@ -12,11 +12,9 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.BridgeLabz.Utillity.Util;
 
 
-
-public class Controller {
+public class InventoryManager {
 	static JSONArray array=new JSONArray();
 	 Inventory obj=null;
 
@@ -62,12 +60,7 @@ public class Controller {
        pw.flush();
        pw.close();
 	}
-	public static void main(String[] args) throws IOException, JSONException, ParseException {
-		// TODO Auto-generated method stub
-   System.out.print("Enter the Inventory Name to calculate the Inventory Price :");
-	String s1=Util.readString();
-	grandTotal(s1);
-	
-	}
+
+
 
 }
