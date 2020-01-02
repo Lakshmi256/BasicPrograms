@@ -1,7 +1,6 @@
 package com.BridgeLabz.AddressBook;
 
 public class service {
-
 	private String fname;
 	private String lname;
 	private String address;
@@ -54,3 +53,4 @@ public class service {
 	}
 
 	}
+

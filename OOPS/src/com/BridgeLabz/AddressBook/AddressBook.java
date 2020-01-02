@@ -1,35 +1,37 @@
 package com.BridgeLabz.AddressBook;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import com.BridgeLabz.Utility.Utils;
-public class MyAddressBookLp {
+
+import com.BridgeLabz.Utillity.Util;
+
+public class AddressBook {
 	JSONArray array=new JSONArray();
 	String fileName;
 	private static service obj;
 	public static service setObj()
 	{
 		obj=new service();
-		return obj;
-			
+		return obj;	
 	}
-	public void addRecord() throws JSONException, FileNotFoundException {
-		// TODO Auto-generated method stub
+	public void addRecord()throws IOException, Exception{
 		service ob=setObj();
 		System.out.println("Enter the First Name :");
-	String first_name=Utils.readString();
+		String first_name=Util.readString();
 		boolean b=false;
 		try 
 		{
 			b=checkRecord(first_name);
 		} 
-		catch (IOException | NullPointerException e) 
+		catch (IOException | ParseException | NullPointerException e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,23 +42,24 @@ public class MyAddressBookLp {
 		{
 		ob.setFname(first_name);
 		System.out.println("Enter the Last Name :");
-		String last_name=Utils.readString();
+		String last_name=Util.readString();
 		ob.setLname(last_name);
 		System.out.println("Enter the Address");
-		String addr=Utils.readString();
+		String addr=Util.readString();
 		ob.setAddress(addr);
 		System.out.println("Enter the City :");
-		String city_name=Utils.readString();
+		String city_name=Util.readString();
 		ob.setCity(city_name);
 		System.out.println("Enter the State :");
-		String state_name=Utils.readString();
+		String state_name=Util.readString();
 		ob.setState(state_name);
 		System.out.println("Enter the Pin");
-		int zip_code=Utils.readInt();
+		int zip_code=Util.readInt();
 		ob.setZip(zip_code);
 		System.out.println("Enter the Phone Number:");
-		long phno=Utils.readlong();
+		long phno=Util.readlong();
 		ob.setPhoneno(phno);
+		
 		JSONObject object=new JSONObject();
         object.put("firstname",first_name);
         object.put("lastname",last_name);
@@ -73,10 +76,11 @@ public class MyAddressBookLp {
 
 		}
 	}
-	private boolean checkRecord(String first_name) throws IOException {
+    
+    public void deleteRecord(String fname) throws IOException,ParseException,JSONException {
 		// TODO Auto-generated method stub
-		boolean flag=false;
-		FileReader fr=null;
+    	
+    	FileReader fr=null;
 		try
 		{
 		fr=new FileReader("AddressBook.json");
@@ -86,24 +90,78 @@ public class MyAddressBookLp {
 		for(int i=0;i<array.length();i++)
 		{
 			JSONObject ob=array.getJSONObject(i);
-		if(first_name.equals(ob.getString("firstname")))
-			flag=true;
+		    if(fname.equals(ob.getString("firstname")))
+			array.remove(i);
 		}
+		 PrintWriter pw=new PrintWriter("AddressBook.json");
+	        pw.write(array.toString());
+	        pw.flush();
+	        pw.close();
 		}
-		catch(Exception e)
+		catch(FileNotFoundException e)
 		{
-			System.out.println("Exception is thrown");
-			flag=false;
+			e.printStackTrace();
 		}
 		finally
 		{
 			fr.close();
 		}
-		return flag;
 		
 	}
-	public void printRecord() throws JSONException, IOException, ParseException {
-		// TODO Auto-generated method stub
+
+	public void updateRecord(String fname) throws JSONException, IOException, ParseException
+	{
+		FileReader fr=null;
+		try
+		{
+		fr=new FileReader("AddressBook.json");
+		JSONParser parser=new JSONParser();
+		array=new JSONArray(parser.parse(fr).toString());
+		boolean b=false;
+		for(int i=0;i<array.length();i++)
+		{
+			JSONObject ob=array.getJSONObject(i);
+		    if(fname.equals(ob.getString("firstname")))
+		    {
+		    	b=true;
+				System.out.println("Enter the Last Name :");
+				String last_name=Util.readString();
+				ob.put("lastname",last_name);
+				System.out.println("Enter the Address");
+				String addr=Util.readString();
+				ob.put("address", addr);
+				System.out.println("Enter the City :");
+				String city_name=Util.readString();
+				ob.put("city", city_name);
+				System.out.println("Enter the State :");
+				String state_name=Util.readString();
+				ob.put("state",state_name);
+				System.out.println("Enter the Pin");
+				int zip_code=Util.readInt();
+				ob.put("zip",zip_code);
+				System.out.println("Enter the Phone Number:");
+				long phno=Util.readlong();
+				ob.put("Phone Number",phno);
+		        PrintWriter pw=new PrintWriter("AddressBook.json");
+		        pw.write(array.toString());
+		        pw.flush();
+		        pw.close();	
+		    }
+		    if(b==true)
+		    	break;
+		}
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			fr.close();
+		}
+	}
+	public void printRecord() throws JSONException, IOException, ParseException 
+	{	
 		FileReader fr=null;
 		try
 		{
@@ -129,25 +187,8 @@ public class MyAddressBookLp {
 		
 	}
 
-	public boolean match(String fname) {
-		// TODO Auto-generated method stub
-		{
-			boolean b=false;
-		try
-		{
-			b=checkRecord(fname);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-			
-			return b;
-		}
-	}
-
-	public void deleteRecord(String fname) throws JSONException, IOException, ParseException {
-		// TODO Auto-generated method stub
+	public boolean checkRecord(String first_name) throws Exception  {
+		boolean flag=false;
 		FileReader fr=null;
 		try
 		{
@@ -158,71 +199,33 @@ public class MyAddressBookLp {
 		for(int i=0;i<array.length();i++)
 		{
 			JSONObject ob=array.getJSONObject(i);
-		    if(fname.equals(ob.getString("firstname")))
-			array.remove(i);
+		if(first_name.equals(ob.getString("firstname")))
+			flag=true;
 		}
 		}
-		catch(FileNotFoundException e)
+		catch(Exception e)
 		{
-			e.printStackTrace();
+			System.out.println("Exception is thrown");
+			flag=false;
 		}
 		finally
 		{
 			fr.close();
 		}
+		return flag;	
 	}
-
-	public void updateRecord(String fname) throws JSONException, IOException, ParseException {
-		// TODO Auto-generated method stub
-
-		FileReader fr=null;
-		try
-		{
-		fr=new FileReader("AddressBook.json");
-		JSONParser parser=new JSONParser();
-		array=new JSONArray(parser.parse(fr).toString());
+	public boolean match(String fname)
+	{
 		boolean b=false;
-		for(int i=0;i<array.length();i++)
-		{
-			JSONObject ob=array.getJSONObject(i);
-		    if(fname.equals(ob.getString("firstname")))
-		    {
-		    	b=true;
-				System.out.println("Enter the Last Name :");
-				String last_name=Utils.readString();
-				ob.put("lastname",last_name);
-				System.out.println("Enter the Address");
-				String addr=Utils.readString();
-				ob.put("address", addr);
-				System.out.println("Enter the City :");
-				String city_name=Utils.readString();
-				ob.put("city", city_name);
-				System.out.println("Enter the State :");
-				String state_name=Utils.readString();
-				ob.put("state",state_name);
-				System.out.println("Enter the Pin");
-				int zip_code=Utils.readInt();
-				ob.put("zip",zip_code);
-				System.out.println("Enter the Phone Number:");
-				long phno=Utils.readlong();
-				ob.put("Phone Number",phno);
-		        array.put(ob);
-		        PrintWriter pw=new PrintWriter("AddressBook.json");
-		        pw.write(array.toString());
-		        pw.flush();
-		        pw.close();	
-		    }
-		    if(b==true)
-		    	break;
-		}
-		}
-		catch(FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			fr.close();
-		}
+	try
+	{
+		b=checkRecord(fname);
 	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}	
+		return b;
+	}
+
 }

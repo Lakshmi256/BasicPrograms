@@ -1,14 +1,17 @@
 package com.BridgeLabz.AddressBook;
+
 import java.io.IOException;
+
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
-import com.BridgeLabz.Utility.Utils;
-public class Runner {
 
+import com.BridgeLabz.Utillity.Util;
+
+public class Runner {
 	public static void main(String[] args) throws JSONException, IOException, ParseException {
 		// TODO Auto-generated method stub
 String a=null;
-MyAddressBookLp obj=new MyAddressBookLp();
+AddressBook obj=new AddressBook();
 do
 {
 	int ch;
@@ -17,7 +20,7 @@ do
 	System.out.println("2. Open an existing Address Book");
 	System.out.println("3. Exit");
 	System.out.println("Enter your choice");
-	ch=Utils.readInt();
+	ch=Util.readInt();
 	switch(ch)
   	{
 	case 1: try
@@ -32,7 +35,7 @@ do
 		     
 	         break;
 	case 2:  System.out.print("Enter the First Name :");
-	         String fname=Utils.readString();
+	         String fname=Util.readString();
 	         boolean b=obj.match(fname);
 	         if(b==false)
 	         {
@@ -47,7 +50,7 @@ do
 		     System.out.println("1. For Deleting the Record");
 		     System.out.println("2. For Updating the Record");
 		     System.out.println("Enter your choice");
-		     int choice=Utils.readInt();
+		     int choice=Util.readInt();
 		     switch(choice)
 		     {
 		     case 1: obj.deleteRecord(fname);
@@ -69,12 +72,9 @@ do
 	        break;
 	default: System.out.println("Wrong Choice!!");
 	       System.out.println("Do you wish to continue(y/n)");
-	     a=Utils.readString();
+	     a=Util.readString();
   	}
    }
    while(a!="n");
 }
 }
-
-
-
