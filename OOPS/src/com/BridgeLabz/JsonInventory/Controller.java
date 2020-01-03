@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
 
 import com.BridgeLabz.Utillity.Util;
 
-public class MyInventoryImpl {
+public class Controller {
 
 	JSONArray array=new JSONArray();
 	private static Inventory obj;

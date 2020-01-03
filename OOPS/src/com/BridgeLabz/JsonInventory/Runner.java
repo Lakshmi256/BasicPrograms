@@ -9,7 +9,7 @@ public class Runner {
 	  public static void main(String[] args) throws Exception {
 			// TODO Auto-generated method stub
 			String a=null;
-		    MyInventoryImpl obj=new MyInventoryImpl();
+		    Controller obj=new Controller();
 		   
 	        do
 	        {

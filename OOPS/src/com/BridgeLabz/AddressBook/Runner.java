@@ -13,7 +13,7 @@ AddressBook obj=new AddressBook();
 do
 {
 	int ch;
-	System.out.println("*****************Menu***************");
+	System.out.println();
 	System.out.println("1. Add a new Address Book");
 	System.out.println("2. Open an existing Address Book");
 	System.out.println("3. Exit");
@@ -45,7 +45,7 @@ do
 		     {
 		     System.out.println("The Record exists");
 		     obj.printRecord();
-		     System.out.println("********Menu**********");
+		     System.out.println();
 		     System.out.println("1. For Deleting the Record");
 		     System.out.println("2. For Updating the Record");
 		     System.out.println("Enter your choice");
@@ -73,7 +73,6 @@ do
 	default: System.out.println("Wrong Choice!!");
 	       System.out.println("Do you wish to continue(y/n)");
 	     a=Util.readString();
-	
   	}
    }
    while(a!="n");
