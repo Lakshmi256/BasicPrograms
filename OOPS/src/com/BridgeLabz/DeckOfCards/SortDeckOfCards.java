@@ -2,30 +2,18 @@ package com.BridgeLabz.DeckOfCards;
 public class SortDeckOfCards extends Controller{
 	 public static String[] sort(String[] arr)
 	{
-		 int k=0;
-		 String[] brr=new String[104];
-		 String[] crr=new String[104];
-		 for(int i=0;i<arr.length;i++)
-		 {
-			
-			brr=arr[i].split("-",52);
-			for (String a:brr)
-			{
-		     crr[k]=a;
-		     k++;
-		 }}
-		 k=0;
-		 String[] br1=new String[13];
-		for(int i=0;i<crr.length;i+=2)
-		{
-			if(crr[k]=="clubs")
-			{
-				br1[i]=crr[k+1];
-			}
-				
-		}
 		
-		
+		 for (int i = 1; i < arr.length; i++) {
+			    for(int j=i;j>0;j--)
+			    {
+			    	if(arr[j-1].compareTo(arr[j])>0)
+			    	{
+			 		String st=arr[j];
+			    		arr[j]=arr[j-1];
+					arr[j-1]=st;
+			     	}
+			        }     
+			 }
 			 return arr;       
     }
  public static void main(String[] args) {
