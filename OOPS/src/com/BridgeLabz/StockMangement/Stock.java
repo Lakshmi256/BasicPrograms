@@ -1,4 +1,4 @@
-package com.Bridgelabz.StockMangement;
+package com.BridgeLabz.StockMangement;
 
 public class Stock {
 
