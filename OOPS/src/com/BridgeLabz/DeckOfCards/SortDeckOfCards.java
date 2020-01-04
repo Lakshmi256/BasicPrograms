@@ -2,7 +2,6 @@ package com.BridgeLabz.DeckOfCards;
 public class SortDeckOfCards extends Controller{
 	 public static String[] sort(String[] arr)
 	{
-		
 		 for (int i = 1; i < arr.length; i++) {
 			    for(int j=i;j>0;j--)
 			    {
@@ -17,7 +16,6 @@ public class SortDeckOfCards extends Controller{
 			 return arr;       
     }
  public static void main(String[] args) {
-		
 	 SortDeckOfCards obj=new SortDeckOfCards();
  String[] deck=obj.addCards();
 sort(deck);
@@ -38,7 +36,6 @@ sort(deck);
 String str1=queue1.toString();
 String[] array1=str1.split(" ");
 String[][] array2=obj.distribute(array1);
-
 for(int i=0;i<4;i++)
 {
 	for(int j=0;j<9;j++)
@@ -60,4 +57,5 @@ System.out.println(p1.toString());
 System.out.println(p2.toString());
 System.out.println(p3.toString());
 System.out.println(p4.toString());
-}}
+}
+}

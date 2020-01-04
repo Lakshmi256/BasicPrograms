@@ -10,7 +10,6 @@ public class Runner {
 			// TODO Auto-generated method stub
 			String a=null;
 		    Controller obj=new Controller();
-		   
 	        do
 	        {
 	        int ch;
@@ -41,11 +40,9 @@ public class Runner {
 					InventoryManager.grandTotal(s);
 		   default: System.out.println("Wrong Choice!!");
 			        System.out.println("Do you wish to continue(y/n)");
-			        a=Util.bufferScanner();
-			       
+			        a=Util.bufferScanner();       
 		  	}
 	       }
 	       while(a!="n");
 		}
-
 	}

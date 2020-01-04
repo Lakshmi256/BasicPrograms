@@ -71,8 +71,6 @@ public class Controller implements Service {
 		
 		return arr;
 	}
-
-
 	@Override
 	public void print(String[][] arr) {
 		// TODO Auto-generated method stub
@@ -86,8 +84,5 @@ public class Controller implements Service {
 			}
 		}
 	}
-
-	
-
 }
 
