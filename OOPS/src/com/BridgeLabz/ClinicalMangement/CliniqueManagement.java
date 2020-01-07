@@ -2,13 +2,10 @@ package com.BridgeLabz.ClinicalMangement;
 
 import java.io.File;
 import java.io.IOException;
-
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
-
 import com.BridgeLabz.Utillity.Util;
-
-public abstract class CliniqueManagement extends Controller {
+public class CliniqueManagement extends Controller {
 
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		// TODO Auto-generated method stub
@@ -31,7 +28,6 @@ public abstract class CliniqueManagement extends Controller {
 			          switch(ch)
 			          {
 			          case 1:
-			  
 			        	 obj.addDoctors(f1);
 					        System.out.println("The Doctor Details have been added");
 						    break;
@@ -70,12 +66,11 @@ public abstract class CliniqueManagement extends Controller {
 					        System.out.println("There is no doctor named :"+s4);
 					        }
 					        break;
-			          default: System.out.println("Wrong Choice!!");
+			          	default: System.out.println("Wrong Choice!!");
 				        System.out.println("Do you wish to continue(y/n)");
 				        a=Util.readString();
 			          }
-			    }
-			          while(a!="n");
+			    
+			    }while(a!="n");
 	}
-
 }

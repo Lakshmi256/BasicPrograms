@@ -17,5 +17,5 @@ public static double fact(double x)
 double n=Util.readdouble();
 double sum=fact(2*n)/(fact(n+1)*fact(n));//equation for the nodes in binary search tree.
 System.out.println(sum);
-	}
+}
 }

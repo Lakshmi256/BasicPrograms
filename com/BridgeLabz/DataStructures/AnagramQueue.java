@@ -2,7 +2,6 @@ package com.BridgeLabz.DataStructures;
 //purpose: To find the prime anagrams and store it in a queue using linked list.
 
 
-
 import com.BridgeLabz.utility.Util;
 public class AnagramQueue {
 	public static void main(String[] args) {
