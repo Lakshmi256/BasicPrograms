@@ -1,10 +1,8 @@
 package com.BridgeLabz.AddressBook;
 import java.io.IOException;
-
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 import com.BridgeLabz.Utillity.Util;
-
 public class Runner {
 	public static void main(String[] args) throws JSONException, IOException, ParseException {
 		// TODO Auto-generated method stub

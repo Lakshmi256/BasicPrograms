@@ -1,9 +1,6 @@
 package com.BridgeLabz.DeckOfCards;
-
 import java.util.Random;
-
 public class Controller implements Service {
-
 	@Override
 	public String[] addCards() {
     String[] suit= {"clubs","diamonds","hearts","spades"};
@@ -37,7 +34,6 @@ public class Controller implements Service {
 		}
 	return flag;
 	}
-	
 	@Override
 	public String[][] distribute(String[] deck) {
 		// TODO Auto-generated method stub
@@ -68,7 +64,6 @@ public class Controller implements Service {
 				}
 			 }
 		}
-		
 		return arr;
 	}
 	@Override

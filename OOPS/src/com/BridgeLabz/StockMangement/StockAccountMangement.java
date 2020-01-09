@@ -8,7 +8,7 @@ import org.json.simple.parser.ParseException;
 
 import com.BridgeLabz.Utillity.Util;
 
-public class StockAccountMangement {
+public class StockAccountMangement extends Controller {
 	
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		String a=null;

@@ -1,5 +1,4 @@
 package com.BridgeLabz.JsonInventory;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,11 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import com.BridgeLabz.Utillity.Util;
-
 public class Controller {
-
 	JSONArray array=new JSONArray();
 	private static Inventory obj;
 	
@@ -78,11 +74,8 @@ public class Controller {
 		finally
 		{
 			fr.close();
-		}
-		
-			
+		}		
 	}
-
 	public void createFile(String file) throws IOException {
 		// TODO Auto-generated method stub
 		File f=new File(file);
@@ -90,8 +83,5 @@ public class Controller {
 		fr.write("[]");
 		fr.flush();
 		fr.close();
-		
-		
 	}
-
 }
