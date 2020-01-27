@@ -63,10 +63,8 @@ public class UnorderedList <E>{
 					break;
 				n=n.next;
 			}
-			return flag;
-			
+			return flag;	
 		}
-	
 	}
 	public  boolean isEmpty()
 	{

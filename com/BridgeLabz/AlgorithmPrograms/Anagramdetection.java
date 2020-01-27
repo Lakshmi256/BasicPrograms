@@ -1,4 +1,4 @@
-package com.BridgeLabz.AlgorithmPrograms;
+package AlgorithmPrograms;
 //purpose: To find the anagram of a string.
 
 import com.BridgeLabz.utility.Util;
